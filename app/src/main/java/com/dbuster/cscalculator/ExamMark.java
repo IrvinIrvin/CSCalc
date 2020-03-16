@@ -18,7 +18,6 @@ import androidx.fragment.app.Fragment;
 public class ExamMark extends Fragment {
     private EditText currentMarkET;
     private EditText finalMarkET;
-    private Button countExamBT;
     private TextView examMarkTV;
 
     @Nullable
@@ -27,7 +26,7 @@ public class ExamMark extends Fragment {
         View view = inflater.inflate(R.layout.exammarkfragment_layout, container, false);
         currentMarkET = view.findViewById(R.id.currentMarkEM);
         finalMarkET = view.findViewById(R.id.finalMarkEM);
-        countExamBT = view.findViewById(R.id.embutton);
+        Button countExamBT = view.findViewById(R.id.embutton);
         examMarkTV = view.findViewById(R.id.examMarkTV);
         countExamBT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +39,12 @@ public class ExamMark extends Fragment {
                     finalMarkValueEXLayout = finalMarkET.getText().toString();
                     if (TextUtils.isEmpty(currentAverageValueEXLayout)){
                         currentMarkET.setError("Поле не должно быть пустым!");
+                    }
+                    else if (currentAverageValueEXLayout.equals(".")) {
+                        currentMarkET.setError("Не валидное значение!");
+                    }
+                    else if (finalMarkValueEXLayout.equals(".")) {
+                        finalMarkET.setError("Не валидное значение!");
                     }
                     else if (Float.parseFloat(currentAverageValueEXLayout) > 100){
                         currentMarkET.setError("Слишком большое значение!");
@@ -66,25 +71,29 @@ public class ExamMark extends Fragment {
                     }
                 }
                 catch (Exception e){
-                    AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
-                    builder1.setMessage(e.toString());
-                    builder1.setCancelable(true);
-                    builder1.setPositiveButton(
-                            "Yes",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
-                    builder1.setNegativeButton(
-                            "No",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
-                    AlertDialog alert11 = builder1.create();
-                    alert11.show();
+                    if (getActivity() != null) {
+
+
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
+                        builder1.setMessage(e.toString());
+                        builder1.setCancelable(true);
+                        builder1.setPositiveButton(
+                                "Yes",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        builder1.setNegativeButton(
+                                "No",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert11 = builder1.create();
+                        alert11.show();
+                    }
                 }
             }
         });

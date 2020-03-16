@@ -1,5 +1,6 @@
 package com.dbuster.cscalculator;
 
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,9 +17,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 public class FinalMark extends Fragment {
+
     private EditText currentMarkET;
     private EditText examMarkET;
-    private Button countFinalBtn;
     private TextView finalMarkTV;
 
     @Nullable
@@ -27,7 +28,7 @@ public class FinalMark extends Fragment {
         View view = inflater.inflate(R.layout.finalmarkfragment_layout, container, false);
         currentMarkET = view.findViewById(R.id.currentMarkFM);
         examMarkET = view.findViewById(R.id.examMarkFM);
-        countFinalBtn = view.findViewById(R.id.fmbutton);
+        Button countFinalBtn = view.findViewById(R.id.fmbutton);
         finalMarkTV = view.findViewById(R.id.finalMarkTV);
         countFinalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,12 @@ public class FinalMark extends Fragment {
                     examValueFMLayout = examMarkET.getText().toString();
                     if (TextUtils.isEmpty(currentAverageValueFMLayout)) {
                         currentMarkET.setError("Поле не должно быть пустым!");
+                    }
+                    else if (currentAverageValueFMLayout.equals(".")) {
+                        currentMarkET.setError("Не валидное значение!");
+                    }
+                    else if (examValueFMLayout.equals(".")) {
+                        examMarkET.setError("Не валидное значение!");
                     }
                     else if (Float.parseFloat(currentAverageValueFMLayout) > 100) {
                         currentMarkET.setError("Слишком большое значение!");
@@ -65,25 +72,27 @@ public class FinalMark extends Fragment {
                     }
                 }
                 catch (Exception e){
-                    AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
-                    builder1.setMessage(e.toString());
-                    builder1.setCancelable(true);
-                    builder1.setPositiveButton(
-                            "Yes",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
-                    builder1.setNegativeButton(
-                            "No",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
-                    AlertDialog alert11 = builder1.create();
-                    alert11.show();
+                    if (getActivity() != null) {
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
+                        builder1.setMessage(e.toString());
+                        builder1.setCancelable(true);
+                        builder1.setPositiveButton(
+                                "Yes",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        builder1.setNegativeButton(
+                                "No",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert11 = builder1.create();
+                        alert11.show();
+                    }
                 }
             }
         });
