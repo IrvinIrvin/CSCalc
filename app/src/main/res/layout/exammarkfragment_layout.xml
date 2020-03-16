@@ -42,8 +42,7 @@
         android:layout_below="@id/examMarkTV"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="@string/countString"
-        android:onClick="countFinal" />
+        android:text="@string/countString" />
     <TextView
         android:id="@+id/examMarkTV"
         android:layout_width="wrap_content"

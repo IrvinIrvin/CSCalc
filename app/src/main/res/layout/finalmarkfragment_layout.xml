@@ -43,7 +43,6 @@
         android:layout_below="@id/finalMarkTV"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:onClick="countFinal"
         android:text="@string/countString" />
     <TextView
         android:id="@+id/finalMarkTV"
