@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
 //    //exam mark layout-------------------------------------
 //    TextView examMarkTextViewEXLayout;
 //    EditText currentAverageEditTextEXLayout, finalMarkEditTextEXLayout;
-    private Switch aSwitch;
+
+//    private Switch aSwitch;
     private SectionStatePagerAdapter mSectionStatePagerAdapter;
     private ViewPager viewPager;
 
@@ -30,22 +31,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mSectionStatePagerAdapter = new SectionStatePagerAdapter(getSupportFragmentManager());
         viewPager = findViewById(R.id.container);
-        aSwitch = findViewById(R.id.fragmentChanger);
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    setViewPager(0);
-                } else {
-                    setViewPager(1);
-                }
-            }
-        });
+//        aSwitch = findViewById(R.id.fragmentChanger);
+//        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    setViewPager(0);
+//                } else {
+//                    setViewPager(1);
+//                }
+//            }
+//        });
         setupViewPager(viewPager);
     }
-    private void setViewPager(int fragmentNumber) {
-        viewPager.setCurrentItem(fragmentNumber);
-    }
+//    private void setViewPager(int fragmentNumber) {
+//        viewPager.setCurrentItem(fragmentNumber);
+//    }
 
     private void setupViewPager(ViewPager viewPager) {
         SectionStatePagerAdapter adapter = new SectionStatePagerAdapter(getSupportFragmentManager());
