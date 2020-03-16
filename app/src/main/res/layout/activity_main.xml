@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--xmlns:app="http://schemas.android.com/apk/res-auto-->
+<ScrollView
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity" >
+        <TextView
+            android:id="@+id/finalMarkOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finalMarkString"
+            android:layout_toStartOf="@id/calcMod"
+            android:layout_marginTop="12dp"/>
+        <TextView
+            android:id="@+id/examMarkOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/examMarkString"
+            android:layout_toEndOf="@id/calcMod"
+            android:layout_marginTop="12dp"/>
+        <Switch
+            android:id="@+id/calcMod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+        <RelativeLayout
+            android:id="@+id/FMLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--layout for final mark-->
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/currentAverageEditTextFMLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/examEditTextFMLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="@string/currentMarkString"
+                android:inputType="numberDecimal"
+                android:textAlignment="center" />
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/examEditTextFMLayout"
+                android:layout_centerInParent="true"
+                android:hint="@string/examMarkString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/fmbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/finalMarkTextViewFMLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:onClick="countFinal"
+                android:text="@string/countString" />
+            <TextView
+                android:id="@+id/finalMarkTextViewFMLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/examEditTextFMLayout"
+                android:layout_centerHorizontal="true"
+                android:textSize="24sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/EXLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--layout for exam mark-->
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/currentAverageEditTextEXLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/finalMarkEditTextEXLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="@string/currentMarkString"
+                android:inputType="numberDecimal"
+                android:textAlignment="center" />
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/finalMarkEditTextEXLayout"
+                android:layout_centerInParent="true"
+                android:hint="@string/finalMarkString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textAlignment="center"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/examMarkTextViewEXLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/countString"
+                android:onClick="countFinal" />
+            <TextView
+                android:id="@+id/examMarkTextViewEXLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/finalMarkEditTextEXLayout"
+                android:layout_centerHorizontal="true"
+                android:textSize="24sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

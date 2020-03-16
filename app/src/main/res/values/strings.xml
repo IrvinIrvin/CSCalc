@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CSCalculator</string>
+    <string name="finalMarkString">Итоговый балл</string>
+    <string name="examMarkString">Балл за экзамен</string>
+    <string name="currentMarkString">Текущий балл</string>
+    <string name="countString">Вычислить</string>
+</resources>
