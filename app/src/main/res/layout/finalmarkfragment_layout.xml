@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+<!--    android:id="@+id/FMLayout"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+    <!--layout for final mark-->
+    <EditText
+        android:importantForAutofill="no"
+        android:id="@+id/currentMarkFM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/examMarkFM"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="@string/currentMarkString"
+        android:inputType="numberDecimal"
+        android:textAlignment="center" />
+    <EditText
+        android:importantForAutofill="no"
+        android:id="@+id/examMarkFM"
+        android:layout_centerInParent="true"
+        android:hint="@string/examMarkString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/fmbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/finalMarkTV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="countFinal"
+        android:text="@string/countString" />
+    <TextView
+        android:id="@+id/finalMarkTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/examMarkFM"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp" />
+</RelativeLayout>

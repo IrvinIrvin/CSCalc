@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+<!--    android:id="@+id/EXLayout"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+    <!--layout for exam mark-->
+    <EditText
+        android:importantForAutofill="no"
+        android:id="@+id/currentMarkEM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/finalMarkEM"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="@string/currentMarkString"
+        android:inputType="numberDecimal"
+        android:textAlignment="center" />
+    <EditText
+        android:importantForAutofill="no"
+        android:id="@+id/finalMarkEM"
+        android:layout_centerInParent="true"
+        android:hint="@string/finalMarkString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"/>
+    <Button
+        android:id="@+id/embutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/examMarkTV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/countString"
+        android:onClick="countFinal" />
+    <TextView
+        android:id="@+id/examMarkTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/finalMarkEM"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp" />
+</RelativeLayout>
