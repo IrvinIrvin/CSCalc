@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -25,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tablayout_id);
         ViewPager viewPager = findViewById(R.id.container);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FinalMark(), "Итоговый балл");
-        adapter.addFragment(new ExamMark(), "Балл за экзамен");
+        adapter.addFragment(new ExamMark(), "Итоговый балл");
+        adapter.addFragment(new FinalMark(), "Балл за экзамен");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

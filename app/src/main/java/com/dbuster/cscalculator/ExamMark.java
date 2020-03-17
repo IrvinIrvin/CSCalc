@@ -1,16 +1,15 @@
 package com.dbuster.cscalculator;
 
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,63 +19,60 @@ import androidx.fragment.app.Fragment;
 public class ExamMark extends Fragment {
 
     private EditText currentMarkET;
-    private EditText finalMarkET;
-    private TextView examMarkTV;
+    private EditText examMarkET;
+    private TextView finalMarkTV;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.exammarkfragment_layout, container, false);
-        currentMarkET = view.findViewById(R.id.currentMarkEM);
-        finalMarkET = view.findViewById(R.id.finalMarkEM);
-        Button countExamBT = view.findViewById(R.id.embutton);
-        examMarkTV = view.findViewById(R.id.examMarkTV);
-        countExamBT.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.finalmarkfragment_layout, container, false);
+        currentMarkET = view.findViewById(R.id.currentMarkFM);
+        examMarkET = view.findViewById(R.id.examMarkFM);
+        Button countFinalBtn = view.findViewById(R.id.fmbutton);
+        finalMarkTV = view.findViewById(R.id.finalMarkTV);
+        countFinalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String currentAverageValueEXLayout, finalMarkValueEXLayout;
+                String currentAverageValueFMLayout, examValueFMLayout;
                 try {
                     currentMarkET.setError(null);
-                    finalMarkET.setError(null);
-                    currentAverageValueEXLayout = currentMarkET.getText().toString();
-                    finalMarkValueEXLayout = finalMarkET.getText().toString();
-                    if (TextUtils.isEmpty(currentAverageValueEXLayout)){
+                    examMarkET.setError(null);
+                    currentAverageValueFMLayout = currentMarkET.getText().toString();
+                    examValueFMLayout = examMarkET.getText().toString();
+                    if (TextUtils.isEmpty(currentAverageValueFMLayout)) {
                         currentMarkET.setError("Поле не должно быть пустым!");
                     }
-                    else if (currentAverageValueEXLayout.equals(".")) {
+                    else if (currentAverageValueFMLayout.equals(".")) {
                         currentMarkET.setError("Не валидное значение!");
                     }
-                    else if (finalMarkValueEXLayout.equals(".")) {
-                        finalMarkET.setError("Не валидное значение!");
+                    else if (examValueFMLayout.equals(".")) {
+                        examMarkET.setError("Не валидное значение!");
                     }
-                    else if (Float.parseFloat(currentAverageValueEXLayout) > 100){
+                    else if (Float.parseFloat(currentAverageValueFMLayout) > 100) {
                         currentMarkET.setError("Слишком большое значение!");
                     }
-                    else if (TextUtils.isEmpty(finalMarkValueEXLayout)){
-                        finalMarkET.setError("Поле не должно быть пустым!");
+                    else if (TextUtils.isEmpty(examValueFMLayout)) {
+                        examMarkET.setError("Поле не должно быть пустым!");
                     }
-                    else if (Float.parseFloat(finalMarkValueEXLayout)> 100) {
-                        finalMarkET.setError("Слишком большое значение!");
+                    else if (Float.parseFloat(examValueFMLayout) > 100) {
+                        examMarkET.setError("Слишком большое значение!");
                     }
                     else {
                         currentMarkET.setText("");
-                        finalMarkET.setText("");
-                        double currentAverageIntEXLayout, finalMarkIntEXLayout;
-                        currentAverageIntEXLayout = Math.floor(Float.parseFloat(currentAverageValueEXLayout));
-                        finalMarkIntEXLayout = Math.floor(Float.parseFloat(finalMarkValueEXLayout));
-                        float examMark = (float)((finalMarkIntEXLayout - 0.6 * currentAverageIntEXLayout)/0.4);
-                        if (examMark > 100)
-                            examMark = 100;
-                        else if (examMark < 0) {
-                            examMark = 0;
-                        }
-                        examMarkTV.setText(String.valueOf(examMark));
+                        examMarkET.setText("");
+                        double currentAverageIntFMLayout, examIntFMLayout;
+                        currentAverageIntFMLayout = Math.floor(Float.parseFloat(currentAverageValueFMLayout));
+                        examIntFMLayout = Math.floor(Float.parseFloat(examValueFMLayout));
+                        float finalMark = (float) (currentAverageIntFMLayout * 0.6 + examIntFMLayout * 0.4);
+                        if (finalMark > 100)
+                            finalMark = 100;
+                        else if (finalMark < 0)
+                            finalMark = 0;
+                        finalMarkTV.setText(String.valueOf(finalMark));
                     }
                 }
                 catch (Exception e){
                     if (getActivity() != null) {
-
-
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
                         builder1.setMessage(e.toString());
                         builder1.setCancelable(true);
