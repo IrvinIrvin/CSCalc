@@ -5,14 +5,6 @@
 <!--    android:layout_width="match_parent"-->
 <!--    android:layout_height="match_parent">-->
     <!--layout for final mark-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/currentMarkFM"
-        android:text="@string/finalMarkString"
-        android:layout_centerHorizontal="true"
-        android:textSize="25sp"
-        android:layout_marginBottom="60sp"/>
     <EditText
         android:importantForAutofill="no"
         android:id="@+id/currentMarkFM"
@@ -51,10 +43,4 @@
         android:layout_below="@id/examMarkFM"
         android:layout_centerHorizontal="true"
         android:textSize="24sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/nav_finalMark"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"/>
 </RelativeLayout>
