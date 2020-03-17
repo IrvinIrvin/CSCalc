@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">CSCalculator</string>
-    <string name="nav_finalMark">Балл за экзамен&#62;&#62;</string>
-    <string name="nav_examMark">&#60;&#60;Итоговый балл</string>
+    <string name="contentDescription">Иконка приложения</string>
+    <string name="about_menu">О программе</string>
     <string name="finalMarkString">Итоговый балл</string>
     <string name="examMarkString">Балл за экзамен</string>
     <string name="currentMarkString">Текущий балл</string>
     <string name="countString">Вычислить</string>
+    <string name="about_text">Created by Kirill Perevyshin</string>
+    <string name="github_repo">https://github.com/IrvinIrvin/CSCalc</string>
+    <string name="telegram">&#64;benedict_cyberhack</string>
 </resources>

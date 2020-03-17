@@ -1,46 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--xmlns:app="http://schemas.android.com/apk/res-auto-->
-<ScrollView
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+<?xml version="1.0" encoding="utf-8"?><!--xmlns:app="http://schemas.android.com/apk/res-auto-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-    <RelativeLayout
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity" >
-        <!--layout  for switch-->
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-<!--            <TextView-->
-<!--                android:id="@+id/finalMarkOption"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/finalMarkString"-->
-<!--                android:layout_toStartOf="@id/fragmentChanger"-->
-<!--                android:layout_marginTop="12dp"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/examMarkOption"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/examMarkString"-->
-<!--                android:layout_toEndOf="@id/fragmentChanger"-->
-<!--                android:layout_marginTop="12dp"/>-->
-<!--            <Switch-->
-<!--                android:id="@+id/fragmentChanger"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                android:layout_marginTop="10dp" />-->
-<!--        </RelativeLayout>-->
-        <!--container for fragments. ViewPager cashes fragments-->
-        <androidx.viewpager.widget.ViewPager
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/container">
+            android:layout_height="wrap_content"
+            app:titleTextColor="@android:color/white"
+            android:background="?attr/colorPrimary">
+        </androidx.appcompat.widget.Toolbar>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/tabIndicatorColor"
+            app:tabMode="fixed"
+            app:tabTextColor="@color/tabTextColor" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         </androidx.viewpager.widget.ViewPager>
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>
