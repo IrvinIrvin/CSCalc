@@ -1,33 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--xmlns:app="http://schemas.android.com/apk/res-auto-->
-<ScrollView xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?><!--xmlns:app="http://schemas.android.com/apk/res-auto-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context=".MainActivity" >
-        <!--container for fragments. ViewPager cashes fragments-->
-<!--<com.google.android.material.appbar.AppBarLayout-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="72sp"-->
-<!--    android:id="@+id/appbarid"/>-->
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@android:color/white"
+            android:background="?attr/colorPrimary">
+        </androidx.appcompat.widget.Toolbar>
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabGravity="fill"
+            app:tabIndicatorColor="@color/tabIndicatorColor"
             app:tabMode="fixed"
-            android:id="@+id/tablayout_id"
-            app:tabTextColor="@color/tabTextColor"
-            app:tabIndicatorColor="@color/tabIndicatorColor"/>
+            app:tabTextColor="@color/tabTextColor" />
+
         <androidx.viewpager.widget.ViewPager
+            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/container">
+            android:layout_height="match_parent">
 
         </androidx.viewpager.widget.ViewPager>
     </LinearLayout>
