@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tablayout_id);
         ViewPager viewPager = findViewById(R.id.container);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ExamMark(), "Итоговый балл");
-        adapter.addFragment(new FinalMark(), "Балл за экзамен");
+        adapter.addFragment(new FinalMark(), "Итоговый балл");
+        adapter.addFragment(new ExamMark(), "Балл за экзамен");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }
