@@ -9,4 +9,5 @@
     <string name="about_text">Created by Kirill Perevyshin</string>
     <string name="github_repo">https://github.com/IrvinIrvin/CSCalc</string>
     <string name="telegram">&#64;benedict_cyberhack</string>
+    <string name="aboutApp">Калькулятор для вычисления финального балла и предположения финального балла исходя из балла за экзамен </string>
 </resources>
